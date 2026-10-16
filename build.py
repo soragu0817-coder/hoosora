@@ -72,18 +72,64 @@ def rel(depth: int, href: str) -> str:
     return prefix + target
 
 
+MENU = [
+    ("후한의원 천안점", [
+        ("원장 소개", "/doctor/"),
+        ("오시는 길", "/clinic/"),
+        ("후한의원 천안점 홈페이지", "https://ca.hooclinic.co.kr/"),
+    ]),
+    ("진료 분야", [
+        ("여드름", "/acne/"),
+        ("등드름·몸여드름", "/acne/body/"),
+        ("여드름 자국·흉터", "/acne-mark/"),
+        ("잡티", "/blemish/"),
+        ("편평사마귀", "/flat-wart/"),
+        ("피부질환", "/skin/"),
+        ("다이어트 한약", "/diet/"),
+        ("안면비대칭", "/facial-asymmetry/"),
+        ("기타", "/etc/"),
+    ]),
+    ("칼럼", [
+        ("전체 칼럼", "/column/"),
+    ]),
+]
+
+
 def header(depth):
     links = "".join(f'<a href="{rel(depth, h)}">{t}</a>' for t, h in NAV)
+    groups = ""
+    for title, items in MENU:
+        lis = ""
+        for t, h in items:
+            ext = ' target="_blank" rel="noopener"' if h.startswith("http") else ""
+            lis += f'<li><a href="{rel(depth, h)}"{ext}>{t}</a></li>'
+        groups += f'<div class="menu-group"><p class="menu-h">{title}</p><ul>{lis}</ul></div>'
+    S = SITE
     return f'''<header class="top">
   <div class="wrap top-in">
     <a class="brand" href="{rel(depth, '/')}">
       <span class="brand-mark" aria-hidden="true">Dr. Ku</span>
-      <span><strong>{SITE["doctor"]} 한의사</strong><small>{SITE["role"]}</small></span>
+      <span><strong>{S["doctor"]} 한의사</strong><small>{S["role"]}</small></span>
     </a>
     <nav class="nav">{links}</nav>
-    <a class="btn btn-sm" href="{SITE["reserve"]}" target="_blank" rel="noopener">진료 예약</a>
+    <a class="btn btn-sm top-reserve" href="{S["reserve"]}" target="_blank" rel="noopener">진료 예약</a>
+    <button class="menu-btn" type="button" aria-label="전체 메뉴 열기" aria-expanded="false" aria-controls="site-menu"><span></span><span></span><span></span></button>
   </div>
-</header>'''
+</header>
+<div class="menu-dim" hidden></div>
+<nav class="menu-panel" id="site-menu" aria-label="전체 메뉴" hidden>
+  <div class="menu-head">
+    <span class="brand-mark">Dr. Ku</span>
+    <button class="menu-close" type="button" aria-label="메뉴 닫기">✕</button>
+  </div>
+  <a class="menu-home" href="{rel(depth, '/')}">홈</a>
+  {groups}
+  <div class="menu-cta">
+    <a class="btn" href="{S["reserve"]}" target="_blank" rel="noopener">온라인 예약</a>
+    <a class="btn btn-ghost" href="tel:{S["phone"]}">전화 {S["phone"]}</a>
+    <a class="btn btn-ghost" href="{S["kakao"]}" target="_blank" rel="noopener">카카오톡 상담</a>
+  </div>
+</nav>'''
 
 
 def contact_block():
@@ -254,7 +300,7 @@ def cover_hero(meta, body):
 
 import hashlib
 CSS_VER = hashlib.md5((ASSETS / "style.css").read_bytes()).hexdigest()[:8]
-JS_VER = hashlib.md5((ASSETS / "check.js").read_bytes() + (ASSETS / "slider.js").read_bytes()).hexdigest()[:8]
+JS_VER = hashlib.md5((ASSETS / "check.js").read_bytes() + (ASSETS / "slider.js").read_bytes() + (ASSETS / "menu.js").read_bytes()).hexdigest()[:8]
 
 
 def render(meta, body):
@@ -303,6 +349,7 @@ def render(meta, body):
 </main>
 {contact_block() if meta.get("contact", True) else ""}
 {footer(depth)}
+<script src="{rel(depth, '/assets/menu.js')}?v={JS_VER}" defer></script>
 <script src="{rel(depth, '/assets/check.js')}?v={JS_VER}" defer></script>
 {f'<script src="{rel(depth, "/assets/slider.js")}?v={JS_VER}" defer></script>' if 'class="slider"' in body else ""}
 </body>

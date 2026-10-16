@@ -20,7 +20,7 @@
 <meta name="theme-color" content="#ffffff">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Noto+Serif+KR:wght@400;500;600&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/style.css?v=c9c11cba">
+<link rel="stylesheet" href="../assets/style.css?v=d6160a2e">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "MedicalWebPage", "headline": "천안 다이어트 한약, 누구에게 어떻게 맞춰 처방할까요?", "description": "천안 다이어트 한약은 체질과 생활 습관을 파악한 뒤 한 분께 맞춘 다이어트 플랜을 세워 처방합니다. 체질 유형, 플랜을 세우는 과정, 마황이 부담스러운 경우, 복용 중 관리를 한의사가 정리했습니다.", "inLanguage": "ko-KR", "dateModified": "2026-10-16", "datePublished": "2026-10-16", "author": {"@type": "Physician", "name": "구소라", "jobTitle": "후한의원 천안점 대표원장"}, "reviewedBy": {"@type": "Physician", "name": "구소라"}, "about": {"@type": "MedicalCondition", "name": "비만"}, "url": "https://hoosora.kr/diet/"}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "다이어트 한약은 누구나 먹을 수 있나요?", "acceptedAnswer": {"@type": "Answer", "text": "그렇지 않습니다. 임신·수유 중이거나 특정 질환이 있는 경우에는 권하지 않을 수 있어, 진찰과 문진 후 처방 여부를 정합니다."}}, {"@type": "Question", "name": "마황 없이도 처방이 되나요?", "acceptedAnswer": {"@type": "Answer", "text": "됩니다. 두근거림이나 불면에 예민한 분, 혈압이 높은 분 등은 마황의 양을 조절하거나 마황 없이 처방하기도 합니다."}}, {"@type": "Question", "name": "한약을 끊으면 다시 찌지 않나요?", "acceptedAnswer": {"@type": "Answer", "text": "생활 습관이 그대로면 다시 늘 수 있습니다. 그래서 복용 중에 식사 패턴과 생활 리듬을 함께 바로잡고, 마무리 단계에서 복용을 줄여 가며 유지할 수 있도록 준비합니다."}}, {"@type": "Question", "name": "천안에서 다이어트 한약 상담은 어떻게 받나요?", "acceptedAnswer": {"@type": "Answer", "text": "후한의원 천안점에 온라인 예약이나 전화(041-622-7073)로 예약하신 뒤 내원해 진찰과 상담을 받으시면 됩니다. 처방은 진찰 후에 정합니다."}}]}</script>
 </head>
@@ -32,9 +32,24 @@
       <span><strong>구소라 한의사</strong><small>후한의원 천안점 대표원장</small></span>
     </a>
     <nav class="nav"><a href="../index.html#diseases">질환 정보</a><a href="../column/index.html">칼럼</a><a href="../doctor/index.html">원장 소개</a><a href="../clinic/index.html">오시는 길</a></nav>
-    <a class="btn btn-sm" href="https://ca.hooclinic.co.kr/clinicPriceSide/reservation.php" target="_blank" rel="noopener">진료 예약</a>
+    <a class="btn btn-sm top-reserve" href="https://ca.hooclinic.co.kr/clinicPriceSide/reservation.php" target="_blank" rel="noopener">진료 예약</a>
+    <button class="menu-btn" type="button" aria-label="전체 메뉴 열기" aria-expanded="false" aria-controls="site-menu"><span></span><span></span><span></span></button>
   </div>
 </header>
+<div class="menu-dim" hidden></div>
+<nav class="menu-panel" id="site-menu" aria-label="전체 메뉴" hidden>
+  <div class="menu-head">
+    <span class="brand-mark">Dr. Ku</span>
+    <button class="menu-close" type="button" aria-label="메뉴 닫기">✕</button>
+  </div>
+  <a class="menu-home" href="../index.html">홈</a>
+  <div class="menu-group"><p class="menu-h">후한의원 천안점</p><ul><li><a href="../doctor/index.html">원장 소개</a></li><li><a href="../clinic/index.html">오시는 길</a></li><li><a href="https://ca.hooclinic.co.kr/" target="_blank" rel="noopener">후한의원 천안점 홈페이지</a></li></ul></div><div class="menu-group"><p class="menu-h">진료 분야</p><ul><li><a href="../acne/index.html">여드름</a></li><li><a href="../acne/body/index.html">등드름·몸여드름</a></li><li><a href="../acne-mark/index.html">여드름 자국·흉터</a></li><li><a href="../blemish/index.html">잡티</a></li><li><a href="../flat-wart/index.html">편평사마귀</a></li><li><a href="../skin/index.html">피부질환</a></li><li><a href="../diet/index.html">다이어트 한약</a></li><li><a href="../facial-asymmetry/index.html">안면비대칭</a></li><li><a href="../etc/index.html">기타</a></li></ul></div><div class="menu-group"><p class="menu-h">칼럼</p><ul><li><a href="../column/index.html">전체 칼럼</a></li></ul></div>
+  <div class="menu-cta">
+    <a class="btn" href="https://ca.hooclinic.co.kr/clinicPriceSide/reservation.php" target="_blank" rel="noopener">온라인 예약</a>
+    <a class="btn btn-ghost" href="tel:041-622-7073">전화 041-622-7073</a>
+    <a class="btn btn-ghost" href="https://pf.kakao.com/_eNnPj" target="_blank" rel="noopener">카카오톡 상담</a>
+  </div>
+</nav>
 <nav class="crumb wrap"><a href="../index.html">홈</a> › 다이어트 한약</nav>
 <main>
 <section class="page-hero"><div class="wrap page-hero-in">
@@ -183,7 +198,8 @@
   </div>
 </footer>
 <a class="sticky-cta" href="https://ca.hooclinic.co.kr/clinicPriceSide/reservation.php" target="_blank" rel="noopener">진료 예약하기 →</a>
-<script src="../assets/check.js?v=26a47a16" defer></script>
+<script src="../assets/menu.js?v=fcc1bcc6" defer></script>
+<script src="../assets/check.js?v=fcc1bcc6" defer></script>
 
 </body>
 </html>
