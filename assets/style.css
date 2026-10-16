@@ -212,5 +212,3 @@ details.faq > div{padding:0 0 22px 28px;color:var(--ink-2);font-size:15.5px}
 }
 @media(min-width:861px){.page-hero-img img{max-height:520px;width:auto;margin-left:auto}}
 @media(max-width:860px){.page-hero-in{padding-top:8px}.crumb{padding-top:14px;padding-bottom:10px}}
-.gallery{grid-template-columns:repeat(3,1fr)}
-@media(min-width:861px){.gallery{max-width:900px}}
