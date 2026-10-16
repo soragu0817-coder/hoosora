@@ -77,7 +77,7 @@ def header(depth):
     return f'''<header class="top">
   <div class="wrap top-in">
     <a class="brand" href="{rel(depth, '/')}">
-      <span class="brand-mark" aria-hidden="true">Dr. Koo</span>
+      <span class="brand-mark" aria-hidden="true">Dr. Ku</span>
       <span><strong>{SITE["doctor"]} 한의사</strong><small>{SITE["role"]}</small></span>
     </a>
     <nav class="nav">{links}</nav>
