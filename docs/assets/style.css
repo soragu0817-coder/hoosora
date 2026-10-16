@@ -212,3 +212,24 @@ details.faq > div{padding:0 0 22px 28px;color:var(--ink-2);font-size:15.5px}
 }
 @media(min-width:861px){.page-hero-img img{max-height:520px;width:auto;margin-left:auto}}
 @media(max-width:860px){.page-hero-in{padding-top:8px}.crumb{padding-top:14px;padding-bottom:10px}}
+
+/* tighter contact block */
+.contact{margin-top:56px;padding:40px 0 48px}
+.contact h2{margin:.2em 0 .6em}
+.contact .card{padding:18px 20px 4px 0}
+.contact .card h3{margin:.2em 0 .3em;font-size:18px}
+.contact .card p{margin:.3em 0}
+.contact .num{font-size:20px}
+.contact .cta-row{margin-top:20px}
+.hours{margin:4px 0}
+.foot{padding:40px 0 88px}
+.foot-note{margin-top:28px}
+@media(max-width:700px){
+  .contact{padding:32px 0 40px;margin-top:40px}
+  .contact .card{padding:14px 0 10px}
+  .contact .num{font-size:17px;margin-right:8px}
+  .contact .card h3{display:inline;font-size:17px}
+  .contact .card h3 + p,.contact .card h3 + dl{margin-top:8px}
+  .contact .cta-row{gap:8px;margin-top:16px}
+  .contact .cta-row .btn{flex:1 1 auto;justify-content:center;padding:12px 10px;font-size:13.5px}
+}
