@@ -76,6 +76,7 @@ def rel(depth: int, href: str) -> str:
 
 
 ICON_NAVER = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="5" fill="#03C75A"/><path d="M13.6 12.4 10.2 7.5H7.5v9h2.9v-4.9l3.4 4.9h2.7v-9h-2.9z" fill="#fff"/></svg>'
+ICON_EVENT = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="9" width="17" height="11.5" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M2.8 9h18.4M12 9v11.5M12 9c-1.2-2.8-4.6-4.3-5.6-2.4C5.5 8.4 9 9 12 9zm0 0c1.2-2.8 4.6-4.3 5.6-2.4.9 1.8-2.6 2.4-5.6 2.4z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>'
 ICON_PHONE = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 3.5c.5-.5 1.3-.5 1.8 0l2.2 2.3c.5.5.5 1.2.1 1.7L9.4 9a12.3 12.3 0 0 0 5.6 5.6l1.5-1.3c.5-.4 1.2-.4 1.7.1l2.3 2.2c.5.5.5 1.3 0 1.8l-1.3 1.3c-1 1-2.6 1.3-3.9.7A18.6 18.6 0 0 1 4.6 8.7c-.6-1.3-.3-2.9.7-3.9z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>'
 ICON_KAKAO = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="5" fill="#FEE500"/><path d="M12 5.8c-3.9 0-7 2.4-7 5.4 0 1.9 1.3 3.6 3.3 4.6l-.7 2.6c-.1.3.2.5.4.3l3.1-2.1h.9c3.9 0 7-2.4 7-5.4s-3.1-5.4-7-5.4z" fill="#191919"/></svg>'
 
@@ -197,7 +198,7 @@ def footer(depth):
   </div>
 </footer>
 <div class="bottom-bar" role="navigation" aria-label="예약·문의">
-  <a href="{S["naver_booking"] or S["reserve"]}" target="_blank" rel="noopener" aria-label="네이버 예약">{ICON_NAVER}<span>예약</span></a>
+  <a href="{S["events"]}" target="_blank" rel="noopener" aria-label="후한의원 천안점 이벤트 보기">{ICON_EVENT}<span>이벤트 보기</span></a>
   <a href="tel:{S["phone"]}" aria-label="전화 문의 {S["phone"]}">{ICON_PHONE}<span>전화</span></a>
   <a href="{S["kakao"]}" target="_blank" rel="noopener" aria-label="카카오톡 상담">{ICON_KAKAO}<span>카톡</span></a>
 </div>'''
