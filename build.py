@@ -35,6 +35,9 @@ SITE = {
     "kakao": "https://pf.kakao.com/_eNnPj",
     "homepage": "https://ca.hooclinic.co.kr/",
     "events": "https://ca.hooclinic.co.kr/clinicPrice/eventList.php",
+    # 검색엔진 소유확인 코드
+    "naver_verify": "39f11d82fd0fb40640284da155b9c19200d7998a",
+    "google_verify": "",
     # 있으면 채우세요 (비우면 링크가 숨겨집니다)
     "naver_place": "",
     "blog": "",
@@ -245,6 +248,8 @@ def render(meta, body):
 <meta name="description" content="{meta["description"]}">
 <meta name="author" content="{SITE["doctor"]}">
 <meta name="robots" content="index, follow, max-image-preview:large">
+{f'<meta name="naver-site-verification" content="{SITE["naver_verify"]}">' if SITE["naver_verify"] else ""}
+{f'<meta name="google-site-verification" content="{SITE["google_verify"]}">' if SITE["google_verify"] else ""}
 {canonical}
 <meta property="og:type" content="{'article' if meta.get('type') == 'article' else 'website'}">
 <meta property="og:title" content="{meta["title"]}">
