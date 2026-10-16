@@ -46,6 +46,7 @@ SITE = {
 
 NAV = [
     ("질환 정보", "/#diseases"),
+    ("칼럼", "/column/"),
     ("원장 소개", "/doctor/"),
     ("오시는 길", "/clinic/"),
 ]
@@ -199,7 +200,8 @@ def page_ld(meta, url):
         "headline": meta["h1"],
         "description": meta["description"],
         "inLanguage": "ko-KR",
-        "dateModified": meta.get("updated", ""),
+        "dateModified": meta.get("updated") or meta.get("date", ""),
+        "datePublished": meta.get("date") or meta.get("updated", ""),
         "author": {"@type": "Physician", "name": SITE["doctor"], "jobTitle": SITE["role"]},
         "reviewedBy": {"@type": "Physician", "name": SITE["doctor"]},
         "about": {"@type": "MedicalCondition", "name": meta.get("condition", meta["h1"])},
@@ -218,7 +220,7 @@ def reviewer_box(meta, depth):
     <p class="muted small">감수 한의사</p>
     <p><a href="{rel(depth, '/doctor/')}"><strong>{SITE["doctor"]}</strong></a> · {SITE["role"]}</p>
     <p class="reviewer-note">{meta.get("note", "")}</p>
-    <p class="muted small">최종 수정 {meta.get("updated", "")}</p>
+    <p class="muted small">{"작성" if meta.get("kind") == "column" else "최종 수정"} {meta.get("updated") or meta.get("date", "")}</p>
   </div>
 </aside>'''
 
@@ -279,17 +281,60 @@ def render(meta, body):
 '''
 
 
+def load(f):
+    text = f.read_text(encoding="utf-8")
+    m = re.match(r"<!--meta\s*(\{.*?\})\s*-->\s*", text, re.S)
+    return json.loads(m.group(1)), text[m.end():]
+
+
+def column_card(c):
+    return (f'<a class="col-card" href="/{c["path"]}"><span class="col-date">{c["date"]}</span>'
+            f'<strong>{c["h1"]}</strong><span class="col-sum">{c["description"]}</span></a>')
+
+
+def column_list_page(cols):
+    cards = "".join(column_card(c) for c in cols) or '<p class="muted">곧 첫 칼럼이 올라옵니다.</p>'
+    meta = {
+        "path": "column/", "crumb": "칼럼",
+        "title": "칼럼 | 구소라 한의사의 피부·체형 이야기",
+        "h1": "진료실에서 자주 받는 질문, 칼럼",
+        "description": "천안 후한의원 구소라 한의사가 진료실에서 자주 받는 여드름, 여드름 자국, 편평사마귀, 다이어트 한약, 안면비대칭 질문을 칼럼으로 정리합니다.",
+    }
+    body = f'''<article class="article">
+  <p class="eyebrow">COLUMN</p>
+  <h1>{meta["h1"]}</h1>
+  <p class="lead">진료실에서 실제로 자주 받는 질문 하나를 골라, 짧고 정확하게 답합니다.</p>
+  <div class="col-list">{cards}</div>
+</article>'''
+    return meta, body
+
+
 def main():
     if OUT.exists():
         shutil.rmtree(OUT)
     OUT.mkdir()
     shutil.copytree(ASSETS, OUT / "assets")
+    items = [load(f) for f in sorted(SRC.glob("*.html"))]
+    cols = [load(f) for f in sorted((SRC / "column").glob("*.html"))] if (SRC / "column").exists() else []
+    cols.sort(key=lambda x: x[0]["date"], reverse=True)
+    col_metas = [c[0] for c in cols]
+    items += cols
+    items.append(column_list_page(col_metas))
     pages = []
-    for f in sorted(SRC.glob("*.html")):
-        text = f.read_text(encoding="utf-8")
-        m = re.match(r"<!--meta\s*(\{.*?\})\s*-->\s*", text, re.S)
-        meta = json.loads(m.group(1))
-        body = text[m.end():]
+    for meta, body in items:
+        if "<!--LATEST_COLUMNS-->" in body:
+            latest = "".join(column_card(c) for c in col_metas[:3])
+            body = body.replace("<!--LATEST_COLUMNS-->", f'<div class="col-list">{latest}</div>' if latest else "")
+        if meta.get("type") == "article" and meta.get("kind") != "column":
+            rel_cols = [c for c in col_metas if meta["path"] in c.get("topics", [])][:5]
+            if rel_cols:
+                lis = "".join(f'<li><a href="/{c["path"]}">{c["h1"]}</a></li>' for c in rel_cols)
+                body += f'\n<div class="article"><h2>관련 칼럼</h2><ul>{lis}</ul></div>'
+        if meta.get("kind") == "column":
+            rel_dis = [m for m, _ in items if m.get("type") == "article" and m.get("kind") != "column" and m["path"] in meta.get("topics", [])]
+            if rel_dis:
+                lis = "".join(f'<li><a href="/{m["path"]}">{m["h1"]}</a></li>' for m, _ in [(x, None) for x in rel_dis])
+                body += f'\n<div class="article"><h2>더 자세한 질환 정보</h2><ul>{lis}</ul></div>'
         dest = OUT / meta["path"] / "index.html"
         dest.parent.mkdir(parents=True, exist_ok=True)
         dest.write_text(render(meta, body), encoding="utf-8")
@@ -303,7 +348,7 @@ def main():
     robots = "User-agent: *\nAllow: /\n"
     if base:
         urls = "".join(
-            f"<url><loc>{base}/{p['path']}</loc>{'<lastmod>'+p['updated']+'</lastmod>' if p.get('updated') else ''}</url>"
+            f"<url><loc>{base}/{p['path']}</loc>{'<lastmod>'+(p.get('updated') or p.get('date'))+'</lastmod>' if (p.get('updated') or p.get('date')) else ''}</url>"
             for p in pages)
         (OUT / "sitemap.xml").write_text(
             f'<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{urls}</urlset>',
