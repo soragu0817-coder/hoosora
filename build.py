@@ -37,6 +37,7 @@ SITE = {
     "kakao": "https://pf.kakao.com/_eNnPj",
     "homepage": "https://ca.hooclinic.co.kr/",
     "events": "https://ca.hooclinic.co.kr/clinicPrice/eventList.php",
+    "cases": "https://ca.hooclinic.co.kr/board/bnfList3.php",
     # 검색엔진 소유확인 코드
     "naver_verify": "39f11d82fd0fb40640284da155b9c19200d7998a",
     "google_verify": "V4takhUUKI0iLC34rKnYgHMLg0czGFQ8cedgzhoE9HU",
@@ -132,9 +133,9 @@ def header(depth):
   <a class="menu-home" href="{rel(depth, '/')}">홈</a>
   {groups}
   <div class="menu-cta">
-    <a class="btn" href="{S["reserve"]}" target="_blank" rel="noopener">온라인 예약</a>
-    <a class="btn btn-ghost" href="tel:{S["phone"]}">전화 {S["phone"]}</a>
-    <a class="btn btn-ghost" href="{S["kakao"]}" target="_blank" rel="noopener">카카오톡 상담</a>
+    <a class="btn btn-ghost" href="{S["cases"]}" target="_blank" rel="noopener">치료 케이스</a>
+    <a class="btn btn-ghost" href="{S["events"]}" target="_blank" rel="noopener">이벤트</a>
+    <a class="btn" href="{S["reserve"]}" target="_blank" rel="noopener">상담하기</a>
   </div>
 </nav>'''
 
