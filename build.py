@@ -77,7 +77,7 @@ def header(depth):
     return f'''<header class="top">
   <div class="wrap top-in">
     <a class="brand" href="{rel(depth, '/')}">
-      <span class="brand-mark" aria-hidden="true">소</span>
+      <span class="brand-mark" aria-hidden="true">Dr. Koo</span>
       <span><strong>{SITE["doctor"]} 한의사</strong><small>{SITE["role"]}</small></span>
     </a>
     <nav class="nav">{links}</nav>
@@ -260,9 +260,9 @@ def render(meta, body):
 <meta property="og:locale" content="ko_KR">
 {og_url}
 {f'<meta property="og:image" content="{SITE["base_url"].rstrip("/")}/assets/doctor.webp">' if SITE["base_url"] else ""}
-<meta name="theme-color" content="#f6f1ea">
+<meta name="theme-color" content="#ffffff">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Noto+Serif+KR:wght@400;500;600&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{css}">
 {ld_html}
 </head>
