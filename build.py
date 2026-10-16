@@ -235,7 +235,26 @@ def breadcrumb(meta, depth):
     return f'<nav class="crumb wrap"><a href="{rel(depth, "/")}">홈</a> › {parent}{meta.get("crumb", meta["h1"])}</nav>'
 
 
+def cover_hero(meta, body):
+    """meta에 cover가 있으면 본문 첫 제목·결론 문단을 꺼내 사진과 나란히 놓는다."""
+    if not meta.get("cover"):
+        return "", body
+    m = re.search(r'(<p class="eyebrow">.*?</p>\s*)?<h1>.*?</h1>\s*(<p class="answer">.*?</p>)?', body, re.S)
+    if not m:
+        return "", body
+    head = m.group(0)
+    body = body[:m.start()] + body[m.end():]
+    alt = meta.get("cover_alt", meta["h1"])
+    hero = f'''<section class="page-hero"><div class="wrap page-hero-in">
+  <div class="page-hero-text">{head}</div>
+  <figure class="page-hero-img"><img src="/{meta["cover"]}" width="880" height="1100" alt="{alt}"></figure>
+</div></section>'''
+    return hero, body
+
+
 def render(meta, body):
+    hero, body = cover_hero(meta, body)
+    body = hero + body
     depth = meta["path"].count("/")
     url = (SITE["base_url"].rstrip("/") + "/" + meta["path"]) if SITE["base_url"] else ""
     lds = [x for x in (clinic_ld() if meta["path"] == "" else None, page_ld(meta, url), faq_ld(body)) if x]

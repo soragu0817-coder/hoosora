@@ -180,3 +180,20 @@ details.faq > div{padding:0 0 22px 28px;color:var(--ink-2);font-size:15.5px}
 .grid .card.wide p{grid-column:2;grid-row:1/3;margin:0}
 .grid .card.wide ul{grid-column:3;grid-row:1/3;margin:0}
 @media(max-width:860px){.grid .card.wide{display:block}}
+
+/* page hero with cover image */
+.page-hero{border-bottom:1px solid var(--line);margin-bottom:24px}
+.page-hero-in{display:grid;grid-template-columns:1.25fr .75fr;gap:64px;align-items:center;padding-top:40px;padding-bottom:56px}
+.page-hero-text h1{margin-top:.3em}
+.page-hero-text .answer{margin-bottom:0}
+.page-hero-img{margin:0}
+.page-hero-img img{width:100%;height:auto;display:block}
+@media(max-width:860px){.page-hero-in{grid-template-columns:1fr;gap:28px;padding-top:24px;padding-bottom:36px}.page-hero-img{order:-1;margin:0 -24px}.page-hero-img img{max-height:62vh;object-fit:cover}}
+
+/* main gallery */
+.gallery-sec{padding-top:72px}
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:28px}
+.gallery figure{margin:0;overflow:hidden;background:var(--stone)}
+.gallery img{width:100%;height:auto;display:block;transition:transform .6s ease}
+.gallery figure:hover img{transform:scale(1.03)}
+@media(max-width:860px){.gallery{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:72%;overflow-x:auto;scroll-snap-type:x mandatory;margin-right:-24px;padding-right:24px}.gallery figure{scroll-snap-align:start}}
