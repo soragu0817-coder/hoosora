@@ -115,9 +115,8 @@ def header(depth):
     S = SITE
     return f'''<header class="top">
   <div class="wrap top-in">
-    <a class="brand" href="{rel(depth, '/')}">
-      <span class="brand-mark" aria-hidden="true">Dr. Ku</span>
-      <span><strong>{S["doctor"]} 한의사</strong><small>{S["role"]}</small></span>
+    <a class="brand brand-hoo" href="{rel(depth, '/')}" aria-label="후한의원 천안점 홈">
+      <span class="brand-hoo-text">HOO CLINIC <span>CHEONAN</span></span>
     </a>
     <nav class="nav">{links}</nav>
     <a class="btn btn-sm top-reserve" href="{S["reserve"]}" target="_blank" rel="noopener">진료 예약</a>
@@ -127,7 +126,7 @@ def header(depth):
 <div class="menu-dim" hidden></div>
 <nav class="menu-panel" id="site-menu" aria-label="전체 메뉴" hidden>
   <div class="menu-head">
-    <span class="brand-mark">Dr. Ku</span>
+    <span class="brand-hoo-text">HOO CLINIC <span>CHEONAN</span></span>
     <button class="menu-close" type="button" aria-label="메뉴 닫기">✕</button>
   </div>
   <a class="menu-home" href="{rel(depth, '/')}">홈</a>

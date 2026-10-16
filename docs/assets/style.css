@@ -313,3 +313,10 @@ body{padding-bottom:calc(56px + env(safe-area-inset-bottom))}
 @media(max-width:860px){.slider-head{padding-top:22px;padding-bottom:16px}}
 .slider-sub{margin:.5em 0 0;font-size:14px;letter-spacing:.06em;color:var(--muted)}
 @media(max-width:480px){.slider-sub{font-size:13px;letter-spacing:.02em}}
+
+/* header logo: HOO CLINIC CHEONAN */
+.brand-hoo{gap:0}
+.brand-hoo-text{font-family:var(--en);font-size:21px;font-weight:500;letter-spacing:.24em;color:var(--sand);white-space:nowrap;line-height:1}
+.brand-hoo-text span{letter-spacing:.24em}
+@media(max-width:480px){.brand-hoo-text{font-size:16px;letter-spacing:.18em}.brand-hoo-text span{letter-spacing:.18em}}
+.menu-head .brand-hoo-text{font-size:16px}
