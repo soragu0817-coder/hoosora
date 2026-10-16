@@ -96,7 +96,10 @@ def contact_block():
         <dt>점심시간</dt><dd>{S["hours_lunch"]}</dd>
         <dt>주말</dt><dd>{S["hours_weekend"]} <span class="muted">(점심시간 없음)</span></dd></dl>
         <p class="muted small">휴진일은 예약 전 전화로 확인해 주세요.</p></div>
-      <div class="card"><span class="num">03</span><h3>예약·문의</h3>
+      <div class="card"><span class="num">03</span><h3>주차</h3>
+        <p>건물 기계식 주차장 이용 가능</p>
+        <p class="muted">RV·SUV는 들어가기 어려워요. 신부동 제5공영주차장 이용 시 주차권을 드립니다.</p></div>
+      <div class="card"><span class="num">04</span><h3>예약·문의</h3>
         <p><a href="tel:{S["phone"]}">{S["phone"]}</a></p>
         <p class="muted">온라인 예약, 카카오톡 상담도 가능합니다.</p></div>
     </div>
@@ -207,7 +210,7 @@ def reviewer_box(meta, depth):
     if meta.get("type") != "article":
         return ""
     return f'''<aside class="reviewer">
-  <div class="reviewer-photo" aria-hidden="true">구</div>
+  <img class="reviewer-photo" src="{rel(depth, '/assets/doctor-face.webp')}" width="200" height="200" alt="구소라 한의사">
   <div>
     <p class="muted small">감수 한의사</p>
     <p><a href="{rel(depth, '/doctor/')}"><strong>{SITE["doctor"]}</strong></a> · {SITE["role"]}</p>
@@ -231,7 +234,7 @@ def render(meta, body):
     canonical = f'<link rel="canonical" href="{url}">' if url else ""
     og_url = f'<meta property="og:url" content="{url}">' if url else ""
     # 본문 안의 /경로 링크를 상대경로로
-    body = re.sub(r'href="(/[^"]*)"', lambda m: f'href="{rel(depth, m.group(1))}"', body)
+    body = re.sub(r'(href|src)="(/[^"]*)"', lambda m: f'{m.group(1)}="{rel(depth, m.group(2))}"', body)
     css = rel(depth, "/assets/style.css")
     return f'''<!doctype html>
 <html lang="ko">
@@ -249,6 +252,7 @@ def render(meta, body):
 <meta property="og:site_name" content="{SITE["site_name"]}">
 <meta property="og:locale" content="ko_KR">
 {og_url}
+{f'<meta property="og:image" content="{SITE["base_url"].rstrip("/")}/assets/doctor.webp">' if SITE["base_url"] else ""}
 <meta name="theme-color" content="#f6f1ea">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">

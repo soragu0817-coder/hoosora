@@ -18,8 +18,6 @@
 메인(`content/00-index.html`)의 질환 카드에 링크를 추가합니다.
 
 ## 채워야 할 곳
-- 원장 사진: `assets/doctor.webp` (메인 사진 자리 교체)
-- 원장 약력: `content/10-doctor.html`
-- 주차·랜드마크: `content/11-clinic.html`
+- 건물 랜드마크: `content/11-clinic.html`
 - 네이버 플레이스·블로그·인스타그램 주소: `build.py`의 `SITE`
 - 도메인을 사면 `build.py`의 `base_url` 교체

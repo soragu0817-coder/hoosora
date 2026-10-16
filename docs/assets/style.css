@@ -120,3 +120,6 @@ details.faq > div{padding:0 0 18px;color:var(--ink-2)}
 .sticky-cta{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);background:var(--accent);color:#fff;text-decoration:none;padding:13px 26px;border-radius:999px;box-shadow:0 8px 24px rgba(80,40,20,.25);font-weight:500;z-index:30;display:none}
 @media(max-width:720px){.sticky-cta{display:block}}
 .eyebrow + h2{margin-top:.3em}
+img.portrait{width:100%;height:auto;object-fit:cover;display:block}
+.doctor-photo{width:100%;max-width:340px;height:auto;border-radius:180px 180px var(--radius) var(--radius);display:block;margin:24px 0}
+img.reviewer-photo{object-fit:cover}
