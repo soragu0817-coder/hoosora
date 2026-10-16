@@ -17,6 +17,7 @@
   - 질환 페이지: `acne/`, `acne/body/`, `acne-mark/`, `flat-wart/`, `diet/`, `facial-asymmetry/`
   - 예: 편평사마귀 칼럼 → `["blemish/", "flat-wart/"]`, 아토피 칼럼 → `["skin/"]`, 등드름 칼럼 → `["acne/body/"]`
 - 구조: 굵은 결론 한 줄(`.answer`) → 공감 도입 → 원인/설명 → 표 또는 목록 → 한의원에서 하는 것 → 정리(관련 질환 페이지 링크) → FAQ 2~4개(`<details class="faq">`, 마지막 질문에 "천안" 포함)
+- FAQ 질문도 구체적으로. "첫 진료 때는 무엇을 하나요?"처럼 넓은 질문은 쓰지 않는다.
 - 분량: 본문 1,500~2,500자.
 - 지역 키워드 "천안"은 title, description, FAQ 한 곳 정도에 자연스럽게. 과하게 반복하지 않는다.
 - 같은 주제를 반복하지 않는다. 쓰기 전에 `content/column/`의 기존 칼럼 제목을 확인한다.
