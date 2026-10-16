@@ -37,7 +37,7 @@ SITE = {
     "events": "https://ca.hooclinic.co.kr/clinicPrice/eventList.php",
     # 검색엔진 소유확인 코드
     "naver_verify": "39f11d82fd0fb40640284da155b9c19200d7998a",
-    "google_verify": "",
+    "google_verify": "V4takhUUKI0iLC34rKnYgHMLg0czGFQ8cedgzhoE9HU",
     # 있으면 채우세요 (비우면 링크가 숨겨집니다)
     "naver_place": "",
     "blog": "",
