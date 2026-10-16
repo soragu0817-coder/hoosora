@@ -252,6 +252,11 @@ def cover_hero(meta, body):
     return hero, body
 
 
+import hashlib
+CSS_VER = hashlib.md5((ASSETS / "style.css").read_bytes()).hexdigest()[:8]
+JS_VER = hashlib.md5((ASSETS / "check.js").read_bytes()).hexdigest()[:8]
+
+
 def render(meta, body):
     hero, body = cover_hero(meta, body)
     body = hero + body
@@ -286,7 +291,7 @@ def render(meta, body):
 <meta name="theme-color" content="#ffffff">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Noto+Serif+KR:wght@400;500;600&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="{css}">
+<link rel="stylesheet" href="{css}?v={CSS_VER}">
 {ld_html}
 </head>
 <body>
@@ -298,7 +303,7 @@ def render(meta, body):
 </main>
 {contact_block() if meta.get("contact", True) else ""}
 {footer(depth)}
-<script src="{rel(depth, '/assets/check.js')}" defer></script>
+<script src="{rel(depth, '/assets/check.js')}?v={JS_VER}" defer></script>
 </body>
 </html>
 '''
