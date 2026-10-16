@@ -247,7 +247,7 @@ def cover_hero(meta, body):
     alt = meta.get("cover_alt", meta["h1"])
     hero = f'''<section class="page-hero"><div class="wrap page-hero-in">
   <div class="page-hero-text">{head}</div>
-  <figure class="page-hero-img"><img src="/{meta["cover"]}" width="880" height="1100" alt="{alt}"></figure>
+  <figure class="page-hero-img" style="--pos:{meta.get('cover_pos', '50% 50%')}"><img src="/{meta["cover"]}" width="880" height="1100" alt="{alt}"></figure>
 </div></section>'''
     return hero, body
 

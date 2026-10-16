@@ -197,3 +197,18 @@ details.faq > div{padding:0 0 22px 28px;color:var(--ink-2);font-size:15.5px}
 .gallery img{width:100%;height:auto;display:block;transition:transform .6s ease}
 .gallery figure:hover img{transform:scale(1.03)}
 @media(max-width:860px){.gallery{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:72%;overflow-x:auto;scroll-snap-type:x mandatory;margin-right:-24px;padding-right:24px}.gallery figure{scroll-snap-align:start}}
+
+/* gallery placed right under hero */
+.gallery-sec{padding-top:64px;padding-bottom:8px}
+.gallery-sec + .band{margin-top:56px}
+/* mobile: keep tall posters within the screen */
+@media(max-width:860px){
+  .page-hero-img{margin:0 -24px}
+  .page-hero-img img{aspect-ratio:1/1;max-height:none;object-fit:cover;object-position:var(--pos,50% 50%)}
+  .gallery{grid-auto-columns:58%;gap:10px}
+  .gallery-sec{padding-top:44px}
+  .hero-photo{aspect-ratio:1/1}
+  img.portrait{object-position:50% 8%}
+}
+@media(min-width:861px){.page-hero-img img{max-height:520px;width:auto;margin-left:auto}}
+@media(max-width:860px){.page-hero-in{padding-top:8px}.crumb{padding-top:14px;padding-bottom:10px}}
