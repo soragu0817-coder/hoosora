@@ -298,3 +298,12 @@ body{padding-bottom:calc(56px + env(safe-area-inset-bottom))}
 .about-name{margin-top:28px;font-family:var(--serif);color:var(--ink-2)}
 .about-name strong{color:var(--ink);font-weight:600}
 .slider-sec + .band{margin-top:40px}
+
+/* icon bottom bar */
+.bottom-bar{background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-top:1px solid var(--line);box-shadow:0 -4px 18px rgba(20,30,25,.08)}
+.bottom-bar a,.bottom-bar a:first-child{background:transparent;color:var(--ink);gap:8px;font-size:13.5px;border-left:1px solid var(--line);height:58px}
+.bottom-bar a:first-child{border-left:0}
+.bottom-bar a:hover,.bottom-bar a:first-child:hover{background:var(--paper)}
+.bottom-bar svg{width:26px;height:26px;flex:none}
+.bottom-bar a:nth-child(2) svg{color:var(--accent);width:24px;height:24px}
+@media(min-width:861px){.bottom-bar{width:auto;grid-template-columns:repeat(3,auto);border:1px solid var(--line);border-radius:40px;overflow:hidden}.bottom-bar a{padding:0 26px;height:52px}}
