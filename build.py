@@ -135,7 +135,7 @@ def header(depth):
   <div class="menu-cta">
     <a class="btn btn-ghost" href="{S["cases"]}" target="_blank" rel="noopener">치료 케이스</a>
     <a class="btn btn-ghost" href="{S["events"]}" target="_blank" rel="noopener">이벤트</a>
-    <a class="btn" href="{S["reserve"]}" target="_blank" rel="noopener">상담하기</a>
+    <a class="btn" href="{S["consult"]}" target="_blank" rel="noopener">상담하기</a>
   </div>
 </nav>'''
 
