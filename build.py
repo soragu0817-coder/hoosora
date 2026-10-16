@@ -160,11 +160,6 @@ def contact_block():
         <p><a href="tel:{S["phone"]}">{S["phone"]}</a></p>
         <p class="muted">온라인 예약, 카카오톡 상담도 가능합니다.</p></div>
     </div>
-    <div class="cta-row">
-      <a class="btn" href="{S["reserve"]}" target="_blank" rel="noopener">온라인 예약</a>
-      <a class="btn btn-ghost" href="tel:{S["phone"]}">전화 {S["phone"]}</a>
-      <a class="btn btn-ghost" href="{S["kakao"]}" target="_blank" rel="noopener">카카오톡 상담</a>
-    </div>
   </div>
 </section>'''
 
