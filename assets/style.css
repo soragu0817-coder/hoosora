@@ -175,3 +175,8 @@ details.faq > div{padding:0 0 22px 28px;color:var(--ink-2);font-size:15.5px}
 @media(max-width:480px){.brand small{display:none}.brand-mark{font-size:20px;padding-right:12px}.top-in{gap:12px}}
 .grid .card:nth-child(3n){border-right:0}
 @media(max-width:1000px){.grid .card{border-right:0}}
+.grid .card.wide{grid-column:1/-1;border-right:0;display:grid;grid-template-columns:200px 1fr 260px;column-gap:30px;align-items:start;padding-top:28px;padding-bottom:28px}
+.grid .card.wide .tag{grid-column:1}.grid .card.wide h3{grid-column:1;margin:0}
+.grid .card.wide p{grid-column:2;grid-row:1/3;margin:0}
+.grid .card.wide ul{grid-column:3;grid-row:1/3;margin:0}
+@media(max-width:860px){.grid .card.wide{display:block}}
