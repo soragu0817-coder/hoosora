@@ -47,7 +47,7 @@ SITE = {
 NAV = [
     ("질환 정보", "/#diseases"),
     ("칼럼", "/column/"),
-    ("원장 소개", "/doctor/"),
+    ("About us", "/doctor/"),
     ("오시는 길", "/clinic/"),
 ]
 
@@ -74,9 +74,8 @@ def rel(depth: int, href: str) -> str:
 
 MENU = [
     ("후한의원 천안점", [
-        ("원장 소개", "/doctor/"),
+        ("About us", "/doctor/"),
         ("오시는 길", "/clinic/"),
-        ("후한의원 천안점 홈페이지", "https://ca.hooclinic.co.kr/"),
     ]),
     ("진료 분야", [
         ("여드름", "/acne/"),
@@ -190,7 +189,11 @@ def footer(depth):
     <a href="{rel(depth, '/policy/')}">콘텐츠 작성 원칙</a> · 이 사이트의 글은 일반적인 건강 정보이며 진료를 대신하지 않습니다. 효과와 경과는 개인의 상태에 따라 다를 수 있습니다.
   </div>
 </footer>
-<a class="sticky-cta" href="{S["reserve"]}" target="_blank" rel="noopener">진료 예약하기 →</a>'''
+<div class="bottom-bar" role="navigation" aria-label="예약·문의">
+  <a href="{S["reserve"]}" target="_blank" rel="noopener">온라인 예약</a>
+  <a href="tel:{S["phone"]}">전화 문의</a>
+  <a href="{S["kakao"]}" target="_blank" rel="noopener">카카오톡 상담</a>
+</div>'''
 
 
 def clinic_ld():

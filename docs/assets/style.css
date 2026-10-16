@@ -281,3 +281,20 @@ body.menu-open{overflow:hidden}
 .menu-cta .btn{justify-content:center}
 @media(max-width:780px){.top-reserve{display:none}.menu-head{height:64px}}
 @media(prefers-reduced-motion:reduce){.menu-panel,.menu-dim{transition:none}}
+
+/* fixed bottom bar: 예약·전화·카카오톡 */
+.sticky-cta{display:none!important}
+.bottom-bar{position:fixed;left:0;right:0;bottom:0;z-index:30;display:grid;grid-template-columns:repeat(3,1fr);background:var(--accent);box-shadow:0 -6px 24px rgba(20,30,25,.14);padding-bottom:env(safe-area-inset-bottom)}
+.bottom-bar a{display:flex;align-items:center;justify-content:center;height:56px;color:#fff;text-decoration:none;font-size:15px;letter-spacing:.03em;border-left:1px solid rgba(255,255,255,.18)}
+.bottom-bar a:first-child{border-left:0;background:var(--accent-dark)}
+.bottom-bar a:hover{background:var(--accent-dark)}
+body{padding-bottom:calc(56px + env(safe-area-inset-bottom))}
+.foot{padding-bottom:48px}
+@media(min-width:861px){.bottom-bar{left:50%;right:auto;transform:translateX(-50%);width:min(640px,calc(100% - 48px));bottom:18px;box-shadow:0 10px 30px rgba(20,30,25,.22)}.bottom-bar a{height:54px}body{padding-bottom:0}.foot{padding-bottom:100px}}
+@media(max-width:480px){.bottom-bar a{font-size:14px}}
+/* homepage section h1 & about */
+.sec-h1{font-size:clamp(23px,3vw,32px);margin:.25em 0 .8em;font-weight:500}
+.about-hero{border-bottom:1px solid var(--line)}
+.about-name{margin-top:28px;font-family:var(--serif);color:var(--ink-2)}
+.about-name strong{color:var(--ink);font-weight:600}
+.slider-sec + .band{margin-top:40px}
