@@ -194,9 +194,9 @@ def footer(depth):
   </div>
 </footer>
 <div class="bottom-bar" role="navigation" aria-label="예약·문의">
-  <a href="{S["events"]}" target="_blank" rel="noopener" aria-label="후한의원 천안점 이벤트 보기">{ICON_EVENT}<span>이벤트 보기</span></a>
-  <a href="tel:{S["phone"]}" aria-label="전화 문의 {S["phone"]}">{ICON_PHONE}<span>전화</span></a>
-  <a href="{S["kakao"]}" target="_blank" rel="noopener" aria-label="카카오톡 상담">{ICON_KAKAO}<span>카톡</span></a>
+  <a href="{S["naver_booking"] or S["reserve"]}" target="_blank" rel="noopener" aria-label="네이버 예약">{ICON_NAVER}<span>네이버 예약</span></a>
+  <a href="tel:{S["phone"]}" aria-label="전화하기 {S["phone"]}">{ICON_PHONE}<span>전화하기</span></a>
+  <a href="{S["kakao"]}" target="_blank" rel="noopener" aria-label="카카오톡 상담">{ICON_KAKAO}<span>카카오톡</span></a>
 </div>'''
 
 

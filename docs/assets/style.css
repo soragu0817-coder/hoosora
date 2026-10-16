@@ -307,4 +307,3 @@ body{padding-bottom:calc(56px + env(safe-area-inset-bottom))}
 .bottom-bar svg{width:26px;height:26px;flex:none}
 .bottom-bar a:nth-child(2) svg{color:var(--accent);width:24px;height:24px}
 @media(min-width:861px){.bottom-bar{width:auto;grid-template-columns:repeat(3,auto);border:1px solid var(--line);border-radius:40px;overflow:hidden}.bottom-bar a{padding:0 26px;height:52px}}
-.bottom-bar a:nth-child(1) svg{color:var(--accent);width:24px;height:24px}
