@@ -32,7 +32,7 @@ SITE = {
     "hours_weekend": "10:00 – 16:00",
     "reserve": "https://ca.hooclinic.co.kr/clinicPriceSide/reservation.php",
     # 네이버 예약 주소 (있으면 하단 네이버 버튼이 이 주소로 연결)
-    "naver_booking": "",
+    "naver_booking": "https://m.place.naver.com/hospital/37803413/home",
     "consult": "https://ca.hooclinic.co.kr/contact/online.php",
     "kakao": "https://pf.kakao.com/_eNnPj",
     "homepage": "https://ca.hooclinic.co.kr/",
@@ -41,7 +41,7 @@ SITE = {
     "naver_verify": "39f11d82fd0fb40640284da155b9c19200d7998a",
     "google_verify": "V4takhUUKI0iLC34rKnYgHMLg0czGFQ8cedgzhoE9HU",
     # 있으면 채우세요 (비우면 링크가 숨겨집니다)
-    "naver_place": "",
+    "naver_place": "https://m.place.naver.com/hospital/37803413/home",
     "blog": "",
     "instagram": "",
 }
