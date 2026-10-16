@@ -254,7 +254,7 @@ def cover_hero(meta, body):
 
 import hashlib
 CSS_VER = hashlib.md5((ASSETS / "style.css").read_bytes()).hexdigest()[:8]
-JS_VER = hashlib.md5((ASSETS / "check.js").read_bytes()).hexdigest()[:8]
+JS_VER = hashlib.md5((ASSETS / "check.js").read_bytes() + (ASSETS / "slider.js").read_bytes()).hexdigest()[:8]
 
 
 def render(meta, body):
@@ -304,6 +304,7 @@ def render(meta, body):
 {contact_block() if meta.get("contact", True) else ""}
 {footer(depth)}
 <script src="{rel(depth, '/assets/check.js')}?v={JS_VER}" defer></script>
+{f'<script src="{rel(depth, "/assets/slider.js")}?v={JS_VER}" defer></script>' if 'class="slider"' in body else ""}
 </body>
 </html>
 '''
