@@ -50,7 +50,7 @@ SITE = {
 NAV = [
     ("질환 정보", "/#diseases"),
     ("칼럼", "/column/"),
-    ("About us", "/doctor/"),
+    ("ABOUT US", "/doctor/"),
     ("오시는 길", "/clinic/"),
 ]
 
@@ -83,7 +83,7 @@ ICON_KAKAO = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect width="24" heigh
 
 MENU = [
     ("후한의원 천안점", [
-        ("About us", "/doctor/"),
+        ("ABOUT US", "/doctor/"),
         ("오시는 길", "/clinic/"),
     ]),
     ("진료 분야", [
@@ -104,13 +104,14 @@ MENU = [
 
 
 def header(depth):
-    links = "".join(f'<a href="{rel(depth, h)}">{t}</a>' for t, h in NAV)
+    links = "".join(f'<a href="{rel(depth, h)}"{' class="en"' if t.isascii() else ''}>{t}</a>' for t, h in NAV)
     groups = ""
     for title, items in MENU:
         lis = ""
         for t, h in items:
             ext = ' target="_blank" rel="noopener"' if h.startswith("http") else ""
-            lis += f'<li><a href="{rel(depth, h)}"{ext}>{t}</a></li>'
+            cls = ' class="en"' if t.isascii() else ""
+            lis += f'<li><a href="{rel(depth, h)}"{ext}{cls}>{t}</a></li>'
         groups += f'<div class="menu-group"><p class="menu-h">{title}</p><ul>{lis}</ul></div>'
     S = SITE
     return f'''<header class="top">
@@ -281,7 +282,7 @@ def breadcrumb(meta, depth):
     if meta.get("parent"):
         name, href = meta["parent"]
         parent = f'<a href="{rel(depth, href)}">{name}</a> › '
-    return f'<nav class="crumb wrap"><a href="{rel(depth, "/")}">홈</a> › {parent}{meta.get("crumb", meta["h1"])}</nav>'
+    return f'<nav class="crumb wrap"><a href="{rel(depth, "/")}">홈</a> › {parent}<span{' class="en"' if meta.get("crumb", "").isascii() else ''}>{meta.get("crumb", meta["h1"])}</span></nav>'
 
 
 def cover_hero(meta, body):

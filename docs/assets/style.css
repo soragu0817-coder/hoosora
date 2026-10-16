@@ -325,3 +325,6 @@ body{padding-bottom:calc(56px + env(safe-area-inset-bottom))}
 .approach{list-style:none;padding:0;margin:0;counter-reset:ap}
 .approach li{counter-increment:ap;border-bottom:1px solid var(--line);padding:6px 0 14px}
 .approach li h3::before{content:"0" counter(ap);display:block;font-family:var(--en);font-size:26px;color:var(--sand);font-weight:500;margin-bottom:4px}
+.nav a.en,.menu-group a.en,.crumb .en{font-family:var(--en);letter-spacing:.16em;font-weight:500}
+.nav a.en{font-size:15px}
+.menu-group a.en{font-size:16.5px}
