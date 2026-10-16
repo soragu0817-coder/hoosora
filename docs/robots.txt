@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://soragu0817-coder.github.io/hoosora/sitemap.xml
