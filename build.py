@@ -228,7 +228,11 @@ def reviewer_box(meta, depth):
 def breadcrumb(meta, depth):
     if meta["path"] == "":
         return ""
-    return f'<nav class="crumb wrap"><a href="{rel(depth, "/")}">홈</a> › {meta.get("crumb", meta["h1"])}</nav>'
+    parent = ""
+    if meta.get("parent"):
+        name, href = meta["parent"]
+        parent = f'<a href="{rel(depth, href)}">{name}</a> › '
+    return f'<nav class="crumb wrap"><a href="{rel(depth, "/")}">홈</a> › {parent}{meta.get("crumb", meta["h1"])}</nav>'
 
 
 def render(meta, body):
@@ -325,13 +329,17 @@ def main():
         if "<!--LATEST_COLUMNS-->" in body:
             latest = "".join(column_card(c) for c in col_metas[:3])
             body = body.replace("<!--LATEST_COLUMNS-->", f'<div class="col-list">{latest}</div>' if latest else "")
+        if "<!--HUB_COLUMNS-->" in body:
+            hub_cols = [c for c in col_metas if meta["path"] in c.get("topics", [])]
+            cards = "".join(column_card(c) for c in hub_cols) or '<p class="muted">이 분야의 칼럼이 곧 올라옵니다.</p>'
+            body = body.replace("<!--HUB_COLUMNS-->", f'<div class="col-list">{cards}</div>')
         if meta.get("type") == "article" and meta.get("kind") != "column":
             rel_cols = [c for c in col_metas if meta["path"] in c.get("topics", [])][:5]
             if rel_cols:
                 lis = "".join(f'<li><a href="/{c["path"]}">{c["h1"]}</a></li>' for c in rel_cols)
                 body += f'\n<div class="article"><h2>관련 칼럼</h2><ul>{lis}</ul></div>'
         if meta.get("kind") == "column":
-            rel_dis = [m for m, _ in items if m.get("type") == "article" and m.get("kind") != "column" and m["path"] in meta.get("topics", [])]
+            rel_dis = [m for m, _ in items if m.get("type") in ("article", "hub") and m.get("kind") != "column" and m["path"] in meta.get("topics", [])]
             if rel_dis:
                 lis = "".join(f'<li><a href="/{m["path"]}">{m["h1"]}</a></li>' for m, _ in [(x, None) for x in rel_dis])
                 body += f'\n<div class="article"><h2>더 자세한 질환 정보</h2><ul>{lis}</ul></div>'
