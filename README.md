@@ -20,4 +20,6 @@
 ## 채워야 할 곳
 - 건물 랜드마크: `content/11-clinic.html`
 - 네이버 플레이스·블로그·인스타그램 주소: `build.py`의 `SITE`
-- 도메인을 사면 `build.py`의 `base_url` 교체
+
+## 도메인
+- 사이트 주소: https://hoosora.kr (`build.py`의 `base_url`, 빌드 시 `docs/CNAME` 자동 생성)

@@ -19,7 +19,7 @@ ASSETS = ROOT / "assets"
 SITE = {
     # 도메인을 정하면 여기에 넣으세요. 예: "https://drsora.kr"
     # 비워 두면 canonical·sitemap 주소가 빠집니다.
-    "base_url": "https://soragu0817-coder.github.io/hoosora",
+    "base_url": "https://hoosora.kr",
     "site_name": "구소라 한의사의 피부·체형 이야기",
     "doctor": "구소라",
     "role": "후한의원 천안점 대표원장",
@@ -291,6 +291,9 @@ def main():
         pages.append(meta)
         print("built", dest.relative_to(ROOT))
     (OUT / ".nojekyll").write_text("")
+    # GitHub Pages 맞춤 도메인
+    if SITE["base_url"]:
+        (OUT / "CNAME").write_text(SITE["base_url"].split("//", 1)[1].rstrip("/") + "\n")
     base = SITE["base_url"].rstrip("/")
     robots = "User-agent: *\nAllow: /\n"
     if base:
