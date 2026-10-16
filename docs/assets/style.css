@@ -320,3 +320,8 @@ body{padding-bottom:calc(56px + env(safe-area-inset-bottom))}
 .brand-hoo-text span{letter-spacing:.24em}
 @media(max-width:480px){.brand-hoo-text{font-size:16px;letter-spacing:.18em}.brand-hoo-text span{letter-spacing:.18em}}
 .menu-head .brand-hoo-text{font-size:16px}
+.approach-eyebrow{margin-top:3.2em;padding-top:2.4em;border-top:1px solid var(--line-strong)}
+.approach-h2{margin-top:.3em}
+.approach{list-style:none;padding:0;margin:0;counter-reset:ap}
+.approach li{counter-increment:ap;border-bottom:1px solid var(--line);padding:6px 0 14px}
+.approach li h3::before{content:"0" counter(ap);display:block;font-family:var(--en);font-size:26px;color:var(--sand);font-weight:500;margin-bottom:4px}
