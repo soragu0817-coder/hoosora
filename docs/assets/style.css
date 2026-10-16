@@ -328,3 +328,4 @@ body{padding-bottom:calc(56px + env(safe-area-inset-bottom))}
 .nav a.en,.menu-group a.en,.crumb .en{font-family:var(--en);letter-spacing:.16em;font-weight:500}
 .nav a.en{font-size:15px}
 .menu-group a.en{font-size:16.5px}
+.links-box p{margin:.35em 0}
