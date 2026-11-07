@@ -329,3 +329,4 @@ body{padding-bottom:calc(56px + env(safe-area-inset-bottom))}
 .nav a.en{font-size:15px}
 .menu-group a.en{font-size:16.5px}
 .links-box p{margin:.35em 0}
+.article h2[id],.article h3[id]{scroll-margin-top:96px}
