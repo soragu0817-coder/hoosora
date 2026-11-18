@@ -126,7 +126,7 @@
 - [ ] 엉덩이랑 허벅지 뒤쪽 뾰루지도 등드름이랑 같은 건가요?
 
 ## 모공각화증
-- [ ] 팔 뒤쪽이 닭살처럼 오돌토돌해요, 모공각화증인가요?
+- [x] 팔 뒤쪽이 닭살처럼 오돌토돌해요, 모공각화증인가요? (2026-11-18, /column/keratosis-pilaris-arm-goosebumps/)
 - [ ] 모공각화증 때밀이로 밀면 없어지나요?
 - [x] 모공각화증은 왜 겨울에 더 심해지나요? (2026-10-17, /column/keratosis-pilaris-winter/)
 - [x] 모공각화증 보습제는 어떤 걸 발라야 하나요? (2026-11-09, /column/keratosis-pilaris-moisturizer/)
