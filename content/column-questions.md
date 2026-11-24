@@ -210,7 +210,7 @@
 - [x] 따뜻한 데만 들어가면 얼굴이 확 달아올라요 (2026-10-18, /column/facial-flushing-warm-room/)
 - [ ] 안면홍조, 갱년기랑 관련이 있나요?
 - [ ] 안면홍조에 좋은 생활습관이 있나요?
-- [ ] 얼굴만 열이 오르고 손발은 차요, 왜 그런가요?
+- [x] 얼굴만 열이 오르고 손발은 차요, 왜 그런가요? (2026-11-24, /column/facial-flushing-cold-hands/)
 
 ### 모낭염
 - [x] 면도하고 나면 턱에 오돌토돌한 게 올라와요 (2026-11-18, /column/folliculitis-after-shaving/)
